@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+NODE_edge_2+_length_45381_cov_280_36 -          HTH_17               PF12728.7    4.3e-05   15.8   0.1    0.0001   14.6   0.0   1.6   2   0   0   2   2   2   1 # 29468 # 29719 # -1 # ID=1_36;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.563
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/8.hmm
+# Target file:     003_checkv/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout 003_checkv/tmp/hmmsearch/8.hmmout --noali -E 10 --cpu 0 /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/8.hmm 003_checkv/tmp/proteins.faa 
+# Current dir:     /users/as3243/my_virome_pipeline/work/22/6b449941a9e6849d7cf2d25ec44fbc
+# Date:            Wed Oct 22 14:22:00 2025
+# [ok]

@@ -1,0 +1,31 @@
+-------------------------------------
+PRODIGAL v2.6.3 [February, 2016]         
+Univ of Tenn / Oak Ridge National Lab
+Doug Hyatt, Loren Hauser, et al.     
+-------------------------------------
+Request:  Metagenomic, Phase:  Training
+Initializing training files...done!
+-------------------------------------
+Request:  Metagenomic, Phase:  Gene Finding
+Finding genes in sequence #1 (45381 bp)...done!
+/users/as3243/my_virome_pipeline/work/c0/dc554c9e8244585e8d6d1570c0fa67/.command.sh: line 16: vcontact2_gene2genome: command not found
+
+============================
+ Job utilisation efficiency
+============================
+
+Job ID: 25576860
+Cluster: viking2.yor.alces.network
+User/Group: as3243/clusterusers
+State: FAILED (exit code 127)
+Nodes: 1
+Cores per node: 8
+CPU Utilized: 00:00:02
+CPU Efficiency: 8.33% of 00:00:24 core-walltime
+Job Wall-clock time: 00:00:03
+Memory Utilized: 5.12 MB
+Memory Efficiency: 0.01% of 48.00 GB
+ Requested wall clock time: 18:00:00
+    Actual wall clock time: 00:00:03
+Wall clock time efficiency: 0.0%
+           Job queued time: 00:00:12

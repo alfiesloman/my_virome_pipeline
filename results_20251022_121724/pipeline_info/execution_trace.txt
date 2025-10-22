@@ -1,0 +1,4 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	31/9794f6	25575167	RUN_GENOMAD (scaffolds)	COMPLETED	0	2025-10-22 12:17:28.675	3m	2m 17s	494.0%	3.9 GB	15.5 GB	421.1 MB	174.4 MB
+2	e3/4703a6	25575329	RUN_CHECKV (scaffolds)	FAILED	1	2025-10-22 12:21:23.861	1m 5s	30s	-	-	-	-	-
+3	3a/26109e	25575372	RUN_CHECKV (scaffolds)	ABORTED	-	2025-10-22 12:22:28.431	-	-	-	-	-	-	-

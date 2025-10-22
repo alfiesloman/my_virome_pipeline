@@ -1,0 +1,22 @@
+Error: database dir not specified
+Use -d or set CHECKVDB environmental variable
+
+============================
+ Job utilisation efficiency
+============================
+
+Job ID: 25575329
+Cluster: viking2.yor.alces.network
+User/Group: as3243/clusterusers
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 4
+CPU Utilized: 00:00:02
+CPU Efficiency: 1.35% of 00:02:28 core-walltime
+Job Wall-clock time: 00:00:37
+Memory Utilized: 43.80 MB
+Memory Efficiency: 0.27% of 16.00 GB
+ Requested wall clock time: 06:00:00
+    Actual wall clock time: 00:00:37
+Wall clock time efficiency: 0.2%
+           Job queued time: 00:00:05

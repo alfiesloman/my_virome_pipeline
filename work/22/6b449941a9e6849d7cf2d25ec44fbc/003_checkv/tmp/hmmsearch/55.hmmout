@@ -1,0 +1,17 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+NODE_edge_2+_length_45381_cov_280_30 -          VOG10675             -             0.0018   10.0   7.7     0.037    5.8   0.0   3.2   3   0   0   3   3   3   2 # 25685 # 26008 # 1 # ID=1_30;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.617
+NODE_edge_2+_length_45381_cov_280_65 -          VOG10682             -            5.9e-81  263.9   4.0   6.5e-81  263.8   4.0   1.0   1   0   0   1   1   1   1 # 44866 # 45381 # -1 # ID=1_65;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.576
+NODE_edge_2+_length_45381_cov_280_1  -          VOG10682             -            3.2e-28   90.9   2.4   3.6e-28   90.7   2.4   1.0   1   0   0   1   1   1   1 # 1 # 318 # -1 # ID=1_1;partial=10;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.550
+NODE_edge_2+_length_45381_cov_280_45 -          VOG10949             -            0.00057   12.2   0.0   0.00071   11.9   0.0   1.2   1   0   0   1   1   1   1 # 35418 # 35738 # -1 # ID=1_45;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.539
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/55.hmm
+# Target file:     003_checkv/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout 003_checkv/tmp/hmmsearch/55.hmmout --noali -E 10 --cpu 0 /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/55.hmm 003_checkv/tmp/proteins.faa 
+# Current dir:     /users/as3243/my_virome_pipeline/work/22/6b449941a9e6849d7cf2d25ec44fbc
+# Date:            Wed Oct 22 14:21:59 2025
+# [ok]

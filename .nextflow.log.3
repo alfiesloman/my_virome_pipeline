@@ -1,0 +1,347 @@
+Oct-22 14:26:11.745 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile slurm --input_dir /users/as3243/test_fasta/ --outdir /users/as3243/test_fasta_results -resume
+Oct-22 14:26:11.845 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Oct-22 14:26:11.863 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/users/as3243/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Oct-22 14:26:11.910 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-22 14:26:11.911 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-22 14:26:11.913 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-22 14:26:11.923 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-22 14:26:11.941 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /users/as3243/my_virome_pipeline/nextflow.config
+Oct-22 14:26:11.944 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /users/as3243/my_virome_pipeline/nextflow.config
+Oct-22 14:26:11.970 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /users/as3243/.nextflow/secrets/store.json
+Oct-22 14:26:11.973 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@7ed9ae94] - activable => nextflow.secret.LocalSecretsProvider@7ed9ae94
+Oct-22 14:26:11.985 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `slurm`
+Oct-22 14:26:12.670 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, debug, test, mamba, conda, viking2]
+Oct-22 14:26:12.708 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-22 14:26:12.726 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [kickass_aryabhata] DSL2 - revision: ed41bd8f02
+Oct-22 14:26:12.727 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-22 14:26:12.728 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-22 14:26:12.771 [main] DEBUG nextflow.Session - Session UUID: 398f7d2b-7bdf-4eb6-bb41-cf1187c737ca
+Oct-22 14:26:12.772 [main] DEBUG nextflow.Session - Run name: kickass_aryabhata
+Oct-22 14:26:12.772 [main] DEBUG nextflow.Session - Executor pool size: 4
+Oct-22 14:26:12.779 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-22 14:26:12.784 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 14:26:12.808 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.6 build 5954
+  Created: 01-07-2025 11:27 UTC (12:27 BST)
+  System: Linux 4.18.0-553.56.1.el8_10.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 21.0.2+13-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 1572422@login2.viking2.yor.alces.network [10.10.0.22]
+  CPUs: 4 - Mem: 24 GB (13.8 GB) - Swap: 16 GB (14.7 GB)
+Oct-22 14:26:12.842 [main] DEBUG nextflow.Session - Work-dir: /users/as3243/my_virome_pipeline/work [nfs]
+Oct-22 14:26:12.861 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-22 14:26:12.869 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-22 14:26:12.898 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-22 14:26:12.921 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-22 14:26:12.929 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Oct-22 14:26:13.009 [main] DEBUG nextflow.Session - Session start
+Oct-22 14:26:13.013 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /users/as3243/test_fasta_results/pipeline_info/execution_trace.txt
+Oct-22 14:26:13.016 [main] DEBUG nextflow.Session - Trace file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_trace.txt -- enable the 'trace.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Trace file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_trace.txt -- enable the 'trace.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.TraceFileObserver.onFlowCreate(TraceFileObserver.groovy:206)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Caused by: java.nio.file.FileAlreadyExistsException: /users/as3243/test_fasta_results/pipeline_info/execution_trace.txt
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:227)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:2988)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 9 common frames omitted
+Oct-22 14:26:13.018 [main] DEBUG nextflow.Session - Report file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Report file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.ReportObserver.onFlowCreate(ReportObserver.groovy:133)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-22 14:26:13.018 [main] DEBUG nextflow.Session - Timeline file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
+nextflow.exception.AbortOperationException: Timeline file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TimelineObserver.onFlowCreate(TimelineObserver.groovy:76)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-22 14:26:13.020 [main] DEBUG nextflow.Session - DAG file already exists: /users/as3243/test_fasta_results/pipeline_info/pipeline_dag.html -- enable `dag.overwrite` in your config file to overwrite existing DAG files
+nextflow.exception.AbortOperationException: DAG file already exists: /users/as3243/test_fasta_results/pipeline_info/pipeline_dag.html -- enable `dag.overwrite` in your config file to overwrite existing DAG files
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.trace.GraphObserver.onFlowCreate(GraphObserver.groovy:77)
+	at nextflow.Session$_notifyFlowCreate_lambda40.doCall(Session.groovy:1093)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowCreate(Session.groovy:1093)
+	at nextflow.Session.start(Session.groovy:585)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:133)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-22 14:26:13.616 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-22 14:26:13.638 [main] INFO  nextflow.Nextflow - ✓ Parameter validation passed
+Oct-22 14:26:13.640 [main] INFO  nextflow.Nextflow - 
+=========================================
+ VIROME ANALYSIS PIPELINE v2.0
+=========================================
+Input directory     : /users/as3243/test_fasta/
+Output directory    : /users/as3243/test_fasta_results
+GeNomad database    : /mnt/scratch/projects/biol-soilv-2024/databases/genomad_db
+iPHoP database      : /mnt/scratch/projects/biol-soilv-2024/virome_assembly/iphop_db/Aug_2023_pub_rw
+BACPHLIP hmmsearch  : /mnt/scratch/users/as3243/miniconda/envs/bacphlip/bin/hmmsearch
+ClusterONE JAR      : /mnt/scratch/users/as3243/miniconda/envs/vcontact2/lib/cluster_one-v1.0.jar
+Max memory          : 120.GB
+Max CPUs            : 32
+Max time            : 48.h
+=========================================
+
+Oct-22 14:26:13.775 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_GENOMAD` matches process RUN_GENOMAD
+Oct-22 14:26:13.786 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 14:26:13.786 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 14:26:13.795 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Oct-22 14:26:13.801 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 20; pollInterval: 5s; dumpInterval: 5m 
+Oct-22 14:26:13.803 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Oct-22 14:26:13.804 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
+Oct-22 14:26:13.806 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Oct-22 14:26:13.826 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_GENOMAD': maxForks=0; fair=false; array=0
+Oct-22 14:26:13.854 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_CHECKV` matches process RUN_CHECKV
+Oct-22 14:26:13.856 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 14:26:13.856 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 14:26:13.857 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_CHECKV': maxForks=0; fair=false; array=0
+Oct-22 14:26:13.862 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_IPHOP` matches process RUN_IPHOP
+Oct-22 14:26:13.863 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 14:26:13.863 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 14:26:13.864 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_IPHOP': maxForks=0; fair=false; array=0
+Oct-22 14:26:13.869 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_BACPHLIP` matches process RUN_BACPHLIP
+Oct-22 14:26:13.871 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 14:26:13.871 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 14:26:13.871 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_BACPHLIP': maxForks=0; fair=false; array=0
+Oct-22 14:26:13.876 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_VCONTACT2` matches process RUN_VCONTACT2
+Oct-22 14:26:13.878 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 14:26:13.878 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 14:26:13.878 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_VCONTACT2': maxForks=0; fair=false; array=0
+Oct-22 14:26:13.891 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: RUN_VCONTACT2, RUN_IPHOP, RUN_CHECKV, RUN_BACPHLIP, RUN_GENOMAD
+Oct-22 14:26:13.894 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Oct-22 14:26:13.898 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /users/as3243/test_fasta/; pattern: *.fasta; options: [:]
+Oct-22 14:26:13.898 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_GENOMAD
+Oct-22 14:26:13.899 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_CHECKV
+Oct-22 14:26:13.899 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_IPHOP
+Oct-22 14:26:13.899 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_BACPHLIP
+Oct-22 14:26:13.899 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_VCONTACT2
+Oct-22 14:26:13.899 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_633414286e097f40: /users/as3243/my_virome_pipeline/main.nf
+Oct-22 14:26:13.899 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-22 14:26:13.899 [main] DEBUG nextflow.Session - Session await
+Oct-22 14:26:13.910 [Actor Thread 1] INFO  nextflow.Nextflow - Processing sample: 003 (/users/as3243/test_fasta/003.fasta)
+Oct-22 14:26:13.994 [Actor Thread 1] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=genomad; path=/users/as3243/.conda/nextflow/env-e8f7de97a875c34e459766f1c3bf24ff
+Oct-22 14:26:14.082 [Actor Thread 4] INFO  nextflow.processor.TaskProcessor - [3c/051401] Cached process > RUN_GENOMAD (003)
+Oct-22 14:26:14.086 [Actor Thread 4] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessCached(TraceFileObserver.groovy:281)
+	at nextflow.Session$_notifyTaskCached_lambda36.doCall(Session.groovy:1075)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskCached(Session.groovy:1075)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.checkCachedOutput(TaskProcessor.groovy:982)
+	at nextflow.processor.TaskProcessor.checkCachedOrLaunchTask(TaskProcessor.groovy:815)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.invokeTask(TaskProcessor.groovy:657)
+	at nextflow.processor.InvokeTaskAdapter.call(InvokeTaskAdapter.groovy:52)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor.access$001(ForkingDataflowOperatorActor.java:35)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor$1.run(ForkingDataflowOperatorActor.java:58)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Oct-22 14:26:14.117 [Actor Thread 4] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 14:26:14.121 [Actor Thread 4] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=checkv; path=/users/as3243/.conda/nextflow/env-4d8a524f3be2a692b01303de37056701
+Oct-22 14:26:14.127 [Actor Thread 2] INFO  nextflow.processor.TaskProcessor - [22/6b4499] Cached process > RUN_CHECKV (003)
+Oct-22 14:26:14.127 [Actor Thread 2] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessCached(TraceFileObserver.groovy:281)
+	at nextflow.Session$_notifyTaskCached_lambda36.doCall(Session.groovy:1075)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskCached(Session.groovy:1075)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.checkCachedOutput(TaskProcessor.groovy:982)
+	at nextflow.processor.TaskProcessor.checkCachedOrLaunchTask(TaskProcessor.groovy:815)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.processor.TaskProcessor.invokeTask(TaskProcessor.groovy:657)
+	at nextflow.processor.InvokeTaskAdapter.call(InvokeTaskAdapter.groovy:52)
+	at groovyx.gpars.dataflow.operator.DataflowOperatorActor.startTask(DataflowOperatorActor.java:120)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor.access$001(ForkingDataflowOperatorActor.java:35)
+	at groovyx.gpars.dataflow.operator.ForkingDataflowOperatorActor$1.run(ForkingDataflowOperatorActor.java:58)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Oct-22 14:26:14.143 [Actor Thread 1] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=bacphlip; path=/users/as3243/.conda/nextflow/env-0cfd63a1dae6f1d759ec80422b9f4924
+Oct-22 14:26:14.145 [Actor Thread 1] INFO  nextflow.conda.CondaCache - Creating env using mamba: vcontact2 [cache /users/as3243/.conda/nextflow/env-f7008766b4713a2a1acebbb48951e1ae]
+Oct-22 14:26:14.145 [Actor Thread 10] INFO  nextflow.conda.CondaCache - Creating env using mamba: iphop_env [cache /users/as3243/.conda/nextflow/env-a27ffb3aa52a16b6e557a77b88559e26]
+Oct-22 14:26:14.227 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_BACPHLIP (003) > jobId: 25576837; workDir: /users/as3243/my_virome_pipeline/work/0b/0e0830e25adf83374e2f775bab3c27
+Oct-22 14:26:14.227 [Task submitter] INFO  nextflow.Session - [0b/0e0830] Submitted process > RUN_BACPHLIP (003)
+Oct-22 14:26:29.330 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Oct-22 14:26:29.342 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+[process] RUN_IPHOP
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] RUN_VCONTACT2
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Oct-22 14:26:29.346 [SIGINT handler] ERROR nextflow.Nextflow - 
+=========================================
+ PIPELINE EXECUTION FAILED
+=========================================
+Error message: SIGINT
+Exit status: null
+Work directory: /users/as3243/my_virome_pipeline/work
+
+Check the log files in the work directory for more details.
+=========================================
+
+Oct-22 14:26:29.347 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-22 14:26:29.348 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-22 14:26:29.348 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Oct-22 14:26:29.350 [Actor Thread 3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=RUN_VCONTACT2; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-22 14:26:29.350 [Actor Thread 5] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=RUN_IPHOP; work-dir=null
+  error [java.lang.InterruptedException]: java.lang.InterruptedException
+Oct-22 14:26:29.353 [main] INFO  nextflow.Nextflow - 
+=========================================
+ VIROME PIPELINE COMPLETED
+=========================================
+Status:     FAILED
+Duration:   16.4s
+CPU hours:  0.4 (100% cached)
+Work dir:   /users/as3243/my_virome_pipeline/work
+Exit status: null
+Error report: SIGINT
+=========================================
+Results directory: /users/as3243/test_fasta_results
+
+Generated outputs:
+- GeNomad results: virus identification and annotation
+- CheckV results: virus quality assessment  
+- iPHoP results: host prediction
+- BACPHLIP results: lifestyle prediction
+- vConTACT2 results: viral clustering
+
+Reports available in: /users/as3243/test_fasta_results/pipeline_info/
+=========================================
+
+Oct-22 14:26:29.356 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Oct-22 14:26:29.377 [main] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.send(Object)" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onProcessComplete(TraceFileObserver.groovy:270)
+	at nextflow.Session$_notifyTaskComplete_lambda34.doCall(Session.groovy:1063)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyTaskComplete(Session.groovy:1063)
+	at nextflow.processor.TaskPollingMonitor.cleanup(TaskPollingMonitor.groovy:736)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.processor.TaskPollingMonitor$_start_closure1.doCall(TaskPollingMonitor.groovy:318)
+	at nextflow.processor.TaskPollingMonitor$_start_closure1.call(TaskPollingMonitor.groovy)
+	at groovy.lang.Closure.run(Closure.java:505)
+	at nextflow.Session.shutdown0(Session.groovy:760)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-22 14:26:29.498 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=2; pendingCount=0; submittedCount=1; runningCount=-1; retriesCount=0; abortedCount=1; succeedDuration=0ms; failedDuration=0ms; cachedDuration=21m 45s;loadCpus=-8; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Oct-22 14:26:29.499 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Oct-22 14:26:29.499 [main] DEBUG nextflow.Session - Cannot invoke "groovyx.gpars.agent.Agent.await()" because "this.writer" is null
+java.lang.NullPointerException: Cannot invoke "groovyx.gpars.agent.Agent.await()" because "this.writer" is null
+	at nextflow.trace.TraceFileObserver.onFlowComplete(TraceFileObserver.groovy:221)
+	at nextflow.Session$_notifyFlowComplete_lambda45.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1107)
+	at nextflow.Session.shutdown0(Session.groovy:768)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Oct-22 14:26:29.499 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Oct-22 14:26:29.882 [main] WARN  nextflow.trace.ReportObserver - Failed to render execution report -- see the log file for details
+nextflow.exception.AbortOperationException: Report file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_report.html -- enable the 'report.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.ReportObserver.renderHtml(ReportObserver.groovy:284)
+	at nextflow.trace.ReportObserver.onFlowComplete(ReportObserver.groovy:143)
+	at nextflow.Session$_notifyFlowComplete_lambda45.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1107)
+	at nextflow.Session.shutdown0(Session.groovy:768)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Caused by: java.nio.file.FileAlreadyExistsException: /users/as3243/test_fasta_results/pipeline_info/execution_report.html
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:227)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:2988)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 12 common frames omitted
+Oct-22 14:26:29.883 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Oct-22 14:26:29.928 [main] WARN  nextflow.trace.TimelineObserver - Failed to render execution timeline -- see the log file for details
+nextflow.exception.AbortOperationException: Timeline file already exists: /users/as3243/test_fasta_results/pipeline_info/execution_timeline.html -- enable the 'timeline.overwrite' option in your config file to overwrite existing files
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:67)
+	at nextflow.trace.TimelineObserver.renderHtml(TimelineObserver.groovy:178)
+	at nextflow.trace.TimelineObserver.onFlowComplete(TimelineObserver.groovy:87)
+	at nextflow.Session$_notifyFlowComplete_lambda45.doCall(Session.groovy:1107)
+	at nextflow.Session.notifyEvent(Session.groovy:1138)
+	at nextflow.Session.notifyFlowComplete(Session.groovy:1107)
+	at nextflow.Session.shutdown0(Session.groovy:768)
+	at nextflow.Session.destroy(Session.groovy:713)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:263)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:147)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)
+Caused by: java.nio.file.FileAlreadyExistsException: /users/as3243/test_fasta_results/pipeline_info/execution_timeline.html
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:261)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:482)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:227)
+	at java.base/java.nio.file.Files.newBufferedWriter(Files.java:2988)
+	at nextflow.trace.TraceHelper.newFileWriter(TraceHelper.groovy:64)
+	... 12 common frames omitted
+Oct-22 14:26:29.962 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-22 14:26:29.976 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

@@ -1,0 +1,2 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	3a/227e20	485575	RUN_GENOMAD (test_sample)	COMPLETED	0	2025-10-22 12:24:39.218	9m 6s	9m 4s	373.1%	6.5 GB	42.6 GB	272.1 MB	30.7 MB

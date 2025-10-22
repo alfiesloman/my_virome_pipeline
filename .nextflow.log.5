@@ -1,0 +1,272 @@
+Oct-22 12:45:04.865 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile slurm --input_dir /users/as3243/test_fasta/ --outdir /users/as3243/test_fasta_results
+Oct-22 12:45:04.951 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Oct-22 12:45:04.969 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/users/as3243/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Oct-22 12:45:05.003 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-22 12:45:05.004 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-22 12:45:05.006 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-22 12:45:05.016 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-22 12:45:05.033 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /users/as3243/my_virome_pipeline/nextflow.config
+Oct-22 12:45:05.036 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /users/as3243/my_virome_pipeline/nextflow.config
+Oct-22 12:45:05.062 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /users/as3243/.nextflow/secrets/store.json
+Oct-22 12:45:05.065 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@2bc12da] - activable => nextflow.secret.LocalSecretsProvider@2bc12da
+Oct-22 12:45:05.077 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `slurm`
+Oct-22 12:45:05.775 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, debug, test, mamba, conda, viking2]
+Oct-22 12:45:05.813 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-22 12:45:05.831 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [stupefied_mahavira] DSL2 - revision: 353b3cafaa
+Oct-22 12:45:05.832 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-22 12:45:05.832 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-22 12:45:05.877 [main] DEBUG nextflow.Session - Session UUID: 398f7d2b-7bdf-4eb6-bb41-cf1187c737ca
+Oct-22 12:45:05.877 [main] DEBUG nextflow.Session - Run name: stupefied_mahavira
+Oct-22 12:45:05.878 [main] DEBUG nextflow.Session - Executor pool size: 4
+Oct-22 12:45:05.884 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-22 12:45:05.889 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 12:45:05.910 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.6 build 5954
+  Created: 01-07-2025 11:27 UTC (12:27 BST)
+  System: Linux 4.18.0-553.56.1.el8_10.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 21.0.2+13-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 663802@login2.viking2.yor.alces.network [10.10.0.22]
+  CPUs: 4 - Mem: 24 GB (10.3 GB) - Swap: 16 GB (14.9 GB)
+Oct-22 12:45:05.949 [main] DEBUG nextflow.Session - Work-dir: /users/as3243/my_virome_pipeline/work [nfs]
+Oct-22 12:45:05.967 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-22 12:45:05.975 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-22 12:45:05.998 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-22 12:45:06.021 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-22 12:45:06.029 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Oct-22 12:45:06.096 [main] DEBUG nextflow.Session - Session start
+Oct-22 12:45:06.100 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /users/as3243/test_fasta_results/pipeline_info/execution_trace.txt
+Oct-22 12:45:06.682 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-22 12:45:06.701 [main] INFO  nextflow.Nextflow - ✓ Parameter validation passed
+Oct-22 12:45:06.703 [main] INFO  nextflow.Nextflow - 
+=========================================
+ VIROME ANALYSIS PIPELINE v2.0
+=========================================
+Input directory     : /users/as3243/test_fasta/
+Output directory    : /users/as3243/test_fasta_results
+GeNomad database    : /mnt/scratch/projects/biol-soilv-2024/databases/genomad_db
+iPHoP database      : /mnt/scratch/projects/biol-soilv-2024/virome_assembly/iphop_db/Aug_2023_pub_rw
+BACPHLIP hmmsearch  : /mnt/scratch/users/as3243/miniconda/envs/bacphlip/bin/hmmsearch
+ClusterONE JAR      : /mnt/scratch/users/as3243/miniconda/envs/vcontact2/lib/cluster_one-v1.0.jar
+Max memory          : 120.GB
+Max CPUs            : 32
+Max time            : 48.h
+=========================================
+
+Oct-22 12:45:06.843 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_GENOMAD` matches process RUN_GENOMAD
+Oct-22 12:45:06.857 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:45:06.857 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:45:06.865 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Oct-22 12:45:06.872 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 20; pollInterval: 5s; dumpInterval: 5m 
+Oct-22 12:45:06.873 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Oct-22 12:45:06.874 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
+Oct-22 12:45:06.877 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Oct-22 12:45:06.896 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_GENOMAD': maxForks=0; fair=false; array=0
+Oct-22 12:45:06.929 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_CHECKV` matches process RUN_CHECKV
+Oct-22 12:45:06.931 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:45:06.931 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:45:06.932 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_CHECKV': maxForks=0; fair=false; array=0
+Oct-22 12:45:06.938 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_IPHOP` matches process RUN_IPHOP
+Oct-22 12:45:06.939 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:45:06.939 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:45:06.940 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_IPHOP': maxForks=0; fair=false; array=0
+Oct-22 12:45:06.945 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_BACPHLIP` matches process RUN_BACPHLIP
+Oct-22 12:45:06.947 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:45:06.947 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:45:06.947 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_BACPHLIP': maxForks=0; fair=false; array=0
+Oct-22 12:45:06.953 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_VCONTACT2` matches process RUN_VCONTACT2
+Oct-22 12:45:06.955 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:45:06.955 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:45:06.955 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_VCONTACT2': maxForks=0; fair=false; array=0
+Oct-22 12:45:06.969 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: RUN_VCONTACT2, RUN_IPHOP, RUN_CHECKV, RUN_BACPHLIP, RUN_GENOMAD
+Oct-22 12:45:06.971 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Oct-22 12:45:06.976 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /users/as3243/test_fasta/; pattern: *.fasta; options: [:]
+Oct-22 12:45:06.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_GENOMAD
+Oct-22 12:45:06.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_CHECKV
+Oct-22 12:45:06.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_IPHOP
+Oct-22 12:45:06.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_BACPHLIP
+Oct-22 12:45:06.976 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_VCONTACT2
+Oct-22 12:45:06.977 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_b049dab1315860f9: /users/as3243/my_virome_pipeline/main.nf
+Oct-22 12:45:06.977 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-22 12:45:06.977 [main] DEBUG nextflow.Session - Session await
+Oct-22 12:45:06.992 [Actor Thread 1] INFO  nextflow.Nextflow - Processing sample: 003 (/users/as3243/test_fasta/003.fasta)
+Oct-22 12:45:07.077 [Actor Thread 3] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=genomad; path=/users/as3243/.conda/nextflow/env-e8f7de97a875c34e459766f1c3bf24ff
+Oct-22 12:45:07.201 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_GENOMAD (003) > jobId: 25576217; workDir: /users/as3243/my_virome_pipeline/work/3c/051401a6fcfb760e241ac5e5b15f3f
+Oct-22 12:45:07.202 [Task submitter] INFO  nextflow.Session - [3c/051401] Submitted process > RUN_GENOMAD (003)
+Oct-22 12:48:16.899 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 25576217; id: 1; name: RUN_GENOMAD (003); status: COMPLETED; exit: 0; error: -; workDir: /users/as3243/my_virome_pipeline/work/3c/051401a6fcfb760e241ac5e5b15f3f started: 1761133541883; exited: 2025-10-22T11:47:32.322401374Z; ]
+Oct-22 12:48:16.900 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 12:48:16.938 [Actor Thread 1] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=checkv; path=/users/as3243/.conda/nextflow/env-4d8a524f3be2a692b01303de37056701
+Oct-22 12:48:16.944 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 12:48:16.973 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_CHECKV (003) > jobId: 25576224; workDir: /users/as3243/my_virome_pipeline/work/85/aaf157fb4ca110814d9ecfc85838cd
+Oct-22 12:48:16.974 [Task submitter] INFO  nextflow.Session - [85/aaf157] Submitted process > RUN_CHECKV (003)
+Oct-22 12:49:51.907 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 25576224; id: 2; name: RUN_CHECKV (003); status: COMPLETED; exit: 1; error: -; workDir: /users/as3243/my_virome_pipeline/work/85/aaf157fb4ca110814d9ecfc85838cd started: 1761133731899; exited: 2025-10-22T11:49:23.754484277Z; ]
+Oct-22 12:49:51.946 [TaskFinalizer-2] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=RUN_CHECKV (003); work-dir=/users/as3243/my_virome_pipeline/work/85/aaf157fb4ca110814d9ecfc85838cd
+  error [nextflow.exception.ProcessFailedException]: Process `RUN_CHECKV (003)` terminated with an error exit status (1)
+Oct-22 12:49:51.971 [TaskFinalizer-2] INFO  nextflow.processor.TaskProcessor - [85/aaf157] NOTE: Process `RUN_CHECKV (003)` terminated with an error exit status (1) -- Execution is retried (1)
+Oct-22 12:49:52.009 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_CHECKV (003) > jobId: 25576229; workDir: /users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c
+Oct-22 12:49:52.010 [Task submitter] INFO  nextflow.Session - [ce/71dbae] Re-submitted process > RUN_CHECKV (003)
+Oct-22 12:50:11.906 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 25576229; id: 3; name: RUN_CHECKV (003); status: SUBMITTED; exit: -; error: -; workDir: /users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c started: -; exited: -; ]
+Oct-22 12:55:11.924 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 25576229; id: 3; name: RUN_CHECKV (003); status: SUBMITTED; exit: -; error: -; workDir: /users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c started: -; exited: -; ]
+Oct-22 13:00:11.954 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 25576229; id: 3; name: RUN_CHECKV (003); status: SUBMITTED; exit: -; error: -; workDir: /users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c started: -; exited: -; ]
+Oct-22 13:05:11.972 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 25576229; id: 3; name: RUN_CHECKV (003); status: SUBMITTED; exit: -; error: -; workDir: /users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c started: -; exited: -; ]
+Oct-22 13:08:51.987 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 25576229; id: 3; name: RUN_CHECKV (003); status: COMPLETED; exit: 1; error: -; workDir: /users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c started: 1761134901984; exited: 2025-10-22T12:08:32.094128586Z; ]
+Oct-22 13:08:51.991 [TaskFinalizer-3] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=RUN_CHECKV (003); work-dir=/users/as3243/my_virome_pipeline/work/ce/71dbaed1b6aebd366dac528da9286c
+  error [nextflow.exception.ProcessFailedException]: Process `RUN_CHECKV (003)` terminated with an error exit status (1)
+Oct-22 13:08:51.992 [TaskFinalizer-3] INFO  nextflow.processor.TaskProcessor - [ce/71dbae] NOTE: Process `RUN_CHECKV (003)` terminated with an error exit status (1) -- Execution is retried (2)
+Oct-22 13:08:52.025 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_CHECKV (003) > jobId: 25576334; workDir: /users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519
+Oct-22 13:08:52.026 [Task submitter] INFO  nextflow.Session - [3a/0d3704] Re-submitted process > RUN_CHECKV (003)
+Oct-22 13:10:11.991 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 25576334; id: 4; name: RUN_CHECKV (003); status: SUBMITTED; exit: -; error: -; workDir: /users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519 started: -; exited: -; ]
+Oct-22 13:15:12.005 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor slurm > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 25576334; id: 4; name: RUN_CHECKV (003); status: SUBMITTED; exit: -; error: -; workDir: /users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519 started: -; exited: 2025-10-22T12:15:09.969441202Z; ]
+Oct-22 13:15:12.008 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 25576334; id: 4; name: RUN_CHECKV (003); status: COMPLETED; exit: 1; error: -; workDir: /users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519 started: 1761135312006; exited: 2025-10-22T12:15:09.969441202Z; ]
+Oct-22 13:15:12.011 [TaskFinalizer-4] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=RUN_CHECKV (003); work-dir=/users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519
+  error [nextflow.exception.ProcessFailedException]: Process `RUN_CHECKV (003)` terminated with an error exit status (1)
+Oct-22 13:15:12.054 [TaskFinalizer-4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'RUN_CHECKV (003)'
+
+Caused by:
+  Process `RUN_CHECKV (003)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  # Create output directory
+  mkdir -p 003_checkv
+  
+  # Check if input file is not empty
+  if [ -s "003_virus.fna" ]; then
+      # Run CheckV
+      checkv end_to_end \
+          003_virus.fna \
+          003_checkv \
+          -t 12
+  
+      # Rename output for consistency
+      if [ -f "003_checkv/proviruses.fna" ] && [ -f "003_checkv/viruses.fna" ]; then
+          cat 003_checkv/proviruses.fna 003_checkv/viruses.fna > 003_checkv/viruses_combined.fna
+          mv 003_checkv/viruses_combined.fna 003_checkv/viruses.fna
+      elif [ -f "003_checkv/proviruses.fna" ]; then
+          mv 003_checkv/proviruses.fna 003_checkv/viruses.fna
+      elif [ ! -f "003_checkv/viruses.fna" ]; then
+          touch 003_checkv/viruses.fna
+      fi
+  else
+      echo "Warning: Empty virus FASTA file for 003"
+      mkdir -p 003_checkv
+      touch 003_checkv/viruses.fna
+  fi
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+  Error: database dir not specified
+  Use -d or set CHECKVDB environmental variable
+
+Work dir:
+  /users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+Oct-22 13:15:12.057 [TaskFinalizer-4] DEBUG nextflow.Session - Session aborted -- Cause: Process `RUN_CHECKV (003)` terminated with an error exit status (1)
+Oct-22 13:15:12.059 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-22 13:15:12.107 [TaskFinalizer-4] ERROR nextflow.Nextflow - 
+    =========================================
+     PIPELINE EXECUTION FAILED
+    =========================================
+    Error message: Error: database dir not specified
+Use -d or set CHECKVDB environmental variable
+    Exit status: 1
+    Work directory: /users/as3243/my_virome_pipeline/work
+    
+    Check the log files in the work directory for more details.
+    =========================================
+    
+Oct-22 13:15:12.108 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-22 13:15:12.108 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Oct-22 13:15:12.114 [main] INFO  nextflow.Nextflow - 
+    =========================================
+     VIROME PIPELINE COMPLETED
+    =========================================
+    Status:     FAILED
+    Duration:   30m 6s
+    CPU hours:  0.4 (32.8% failed)
+    Work dir:   /users/as3243/my_virome_pipeline/work
+    Exit status: 1
+    Error report: Error executing process > 'RUN_CHECKV (003)'
+
+Caused by:
+  Process `RUN_CHECKV (003)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  # Create output directory
+  mkdir -p 003_checkv
+  
+  # Check if input file is not empty
+  if [ -s "003_virus.fna" ]; then
+      # Run CheckV
+      checkv end_to_end \
+          003_virus.fna \
+          003_checkv \
+          -t 12
+  
+      # Rename output for consistency
+      if [ -f "003_checkv/proviruses.fna" ] && [ -f "003_checkv/viruses.fna" ]; then
+          cat 003_checkv/proviruses.fna 003_checkv/viruses.fna > 003_checkv/viruses_combined.fna
+          mv 003_checkv/viruses_combined.fna 003_checkv/viruses.fna
+      elif [ -f "003_checkv/proviruses.fna" ]; then
+          mv 003_checkv/proviruses.fna 003_checkv/viruses.fna
+      elif [ ! -f "003_checkv/viruses.fna" ]; then
+          touch 003_checkv/viruses.fna
+      fi
+  else
+      echo "Warning: Empty virus FASTA file for 003"
+      mkdir -p 003_checkv
+      touch 003_checkv/viruses.fna
+  fi
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+  Error: database dir not specified
+  Use -d or set CHECKVDB environmental variable
+
+Work dir:
+  /users/as3243/my_virome_pipeline/work/3a/0d37047fd61fd5804ca72668e23519
+
+Tip: when you have fixed the problem you can continue the execution adding the option `-resume` to the run command line
+    =========================================
+    Results directory: /users/as3243/test_fasta_results
+    
+    Generated outputs:
+    - GeNomad results: virus identification and annotation
+    - CheckV results: virus quality assessment  
+    - iPHoP results: host prediction
+    - BACPHLIP results: lifestyle prediction
+    - vConTACT2 results: viral clustering
+    
+    Reports available in: /users/as3243/test_fasta_results/pipeline_info/
+    =========================================
+    
+Oct-22 13:15:12.120 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=3; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=2; abortedCount=0; succeedDuration=16m 23s; failedDuration=8m; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=12; peakMemory=48 GB; ]
+Oct-22 13:15:12.121 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Oct-22 13:15:12.122 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Oct-22 13:15:12.560 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Oct-22 13:15:12.643 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-22 13:15:12.655 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

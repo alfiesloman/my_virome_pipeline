@@ -1,0 +1,170 @@
+Oct-22 12:11:35.246 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input_dir /users/as3243/scratch/test_prep --outdir results_20251022_121134 -profile slurm -resume
+Oct-22 12:11:35.346 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Oct-22 12:11:35.363 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/users/as3243/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Oct-22 12:11:35.389 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Oct-22 12:11:35.390 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Oct-22 12:11:35.392 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Oct-22 12:11:35.403 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Oct-22 12:11:35.421 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /users/as3243/my_virome_pipeline/nextflow.config
+Oct-22 12:11:35.423 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /users/as3243/my_virome_pipeline/nextflow.config
+Oct-22 12:11:35.450 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /users/as3243/.nextflow/secrets/store.json
+Oct-22 12:11:35.453 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@7ed9ae94] - activable => nextflow.secret.LocalSecretsProvider@7ed9ae94
+Oct-22 12:11:35.465 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `slurm`
+Oct-22 12:11:36.180 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [slurm, debug, test, mamba, conda, viking2]
+Oct-22 12:11:36.218 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Oct-22 12:11:36.235 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [determined_pesquet] DSL2 - revision: 5b47f33ce4
+Oct-22 12:11:36.236 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Oct-22 12:11:36.236 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Oct-22 12:11:36.281 [main] DEBUG nextflow.Session - Session UUID: 398f7d2b-7bdf-4eb6-bb41-cf1187c737ca
+Oct-22 12:11:36.281 [main] DEBUG nextflow.Session - Run name: determined_pesquet
+Oct-22 12:11:36.281 [main] DEBUG nextflow.Session - Executor pool size: 4
+Oct-22 12:11:36.289 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Oct-22 12:11:36.294 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 12:11:36.320 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.6 build 5954
+  Created: 01-07-2025 11:27 UTC (12:27 BST)
+  System: Linux 4.18.0-553.56.1.el8_10.x86_64
+  Runtime: Groovy 4.0.26 on OpenJDK 64-Bit Server VM 21.0.2+13-LTS
+  Encoding: UTF-8 (UTF-8)
+  Process: 437217@login2.viking2.yor.alces.network [10.10.0.22]
+  CPUs: 4 - Mem: 24 GB (10.8 GB) - Swap: 16 GB (14.9 GB)
+Oct-22 12:11:36.358 [main] DEBUG nextflow.Session - Work-dir: /users/as3243/my_virome_pipeline/work [nfs]
+Oct-22 12:11:36.386 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Oct-22 12:11:36.396 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Oct-22 12:11:36.424 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Oct-22 12:11:36.449 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Oct-22 12:11:36.458 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 5; maxThreads: 1000
+Oct-22 12:11:36.531 [main] DEBUG nextflow.Session - Session start
+Oct-22 12:11:36.534 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /users/as3243/my_virome_pipeline/results_20251022_121134/pipeline_info/execution_trace.txt
+Oct-22 12:11:37.219 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Oct-22 12:11:37.244 [main] INFO  nextflow.Nextflow - ✓ Parameter validation passed
+Oct-22 12:11:37.246 [main] INFO  nextflow.Nextflow - 
+=========================================
+ VIROME ANALYSIS PIPELINE v2.0
+=========================================
+Input directory     : /users/as3243/scratch/test_prep
+Output directory    : results_20251022_121134
+GeNomad database    : /mnt/scratch/projects/biol-soilv-2024/databases/genomad_db
+iPHoP database      : /mnt/scratch/projects/biol-soilv-2024/virome_assembly/iphop_db/Aug_2023_pub_rw
+BACPHLIP hmmsearch  : /mnt/scratch/users/as3243/miniconda/envs/bacphlip/bin/hmmsearch
+ClusterONE JAR      : /mnt/scratch/users/as3243/miniconda/envs/vcontact2/lib/cluster_one-v1.0.jar
+Max memory          : 120.GB
+Max CPUs            : 32
+Max time            : 48.h
+=========================================
+
+Oct-22 12:11:37.410 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_GENOMAD` matches process RUN_GENOMAD
+Oct-22 12:11:37.424 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:11:37.424 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:11:37.434 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Oct-22 12:11:37.443 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 20; pollInterval: 5s; dumpInterval: 5m 
+Oct-22 12:11:37.445 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Oct-22 12:11:37.446 [main] DEBUG n.processor.TaskPollingMonitor - Creating submit rate limit of 10 submissions per 1 seconds
+Oct-22 12:11:37.449 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Oct-22 12:11:37.470 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_GENOMAD': maxForks=0; fair=false; array=0
+Oct-22 12:11:37.504 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_CHECKV` matches process RUN_CHECKV
+Oct-22 12:11:37.506 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:11:37.506 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:11:37.507 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_CHECKV': maxForks=0; fair=false; array=0
+Oct-22 12:11:37.512 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_IPHOP` matches process RUN_IPHOP
+Oct-22 12:11:37.514 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:11:37.514 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:11:37.514 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_IPHOP': maxForks=0; fair=false; array=0
+Oct-22 12:11:37.519 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_BACPHLIP` matches process RUN_BACPHLIP
+Oct-22 12:11:37.521 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:11:37.521 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:11:37.521 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_BACPHLIP': maxForks=0; fair=false; array=0
+Oct-22 12:11:37.526 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:RUN_VCONTACT2` matches process RUN_VCONTACT2
+Oct-22 12:11:37.528 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Oct-22 12:11:37.528 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Oct-22 12:11:37.528 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'RUN_VCONTACT2': maxForks=0; fair=false; array=0
+Oct-22 12:11:37.541 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: RUN_VCONTACT2, RUN_IPHOP, RUN_CHECKV, RUN_BACPHLIP, RUN_GENOMAD
+Oct-22 12:11:37.543 [main] DEBUG nextflow.Session - Igniting dataflow network (6)
+Oct-22 12:11:37.549 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_GENOMAD
+Oct-22 12:11:37.549 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /users/as3243/scratch/test_prep/; pattern: *.fasta; options: [:]
+Oct-22 12:11:37.549 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_CHECKV
+Oct-22 12:11:37.549 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_IPHOP
+Oct-22 12:11:37.549 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_BACPHLIP
+Oct-22 12:11:37.549 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > RUN_VCONTACT2
+Oct-22 12:11:37.550 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_8e8236cdac723898: /users/as3243/my_virome_pipeline/main.nf
+Oct-22 12:11:37.550 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Oct-22 12:11:37.550 [main] DEBUG nextflow.Session - Session await
+Oct-22 12:11:37.566 [Actor Thread 5] INFO  nextflow.Nextflow - Processing sample: scaffolds (/users/as3243/scratch/test_prep/scaffolds.fasta)
+Oct-22 12:11:37.661 [Actor Thread 5] DEBUG nextflow.conda.CondaCache - mamba found local env for environment=genomad; path=/users/as3243/.conda/nextflow/env-e8f7de97a875c34e459766f1c3bf24ff
+Oct-22 12:11:37.779 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_GENOMAD (scaffolds) > jobId: 25574674; workDir: /users/as3243/my_virome_pipeline/work/55/5f7bdc6924df0c3f6a28ba0bef39d4
+Oct-22 12:11:37.780 [Task submitter] INFO  nextflow.Session - [55/5f7bdc] Submitted process > RUN_GENOMAD (scaffolds)
+Oct-22 12:12:12.464 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 25574674; id: 1; name: RUN_GENOMAD (scaffolds); status: COMPLETED; exit: 1; error: -; workDir: /users/as3243/my_virome_pipeline/work/55/5f7bdc6924df0c3f6a28ba0bef39d4 started: 1761131532459; exited: 2025-10-22T11:11:56.753896242Z; ]
+Oct-22 12:12:12.465 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=12; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Oct-22 12:12:12.477 [TaskFinalizer-1] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=RUN_GENOMAD (scaffolds); work-dir=/users/as3243/my_virome_pipeline/work/55/5f7bdc6924df0c3f6a28ba0bef39d4
+  error [nextflow.exception.ProcessFailedException]: Process `RUN_GENOMAD (scaffolds)` terminated with an error exit status (1)
+Oct-22 12:12:12.488 [TaskFinalizer-1] INFO  nextflow.processor.TaskProcessor - [55/5f7bdc] NOTE: Process `RUN_GENOMAD (scaffolds)` terminated with an error exit status (1) -- Execution is retried (1)
+Oct-22 12:12:12.518 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [SLURM] submitted process RUN_GENOMAD (scaffolds) > jobId: 25574676; workDir: /users/as3243/my_virome_pipeline/work/f2/cc1039c3f12d185a7456db99b75d1b
+Oct-22 12:12:12.519 [Task submitter] INFO  nextflow.Session - [f2/cc1039] Re-submitted process > RUN_GENOMAD (scaffolds)
+Oct-22 12:13:39.086 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Oct-22 12:13:39.101 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+[process] RUN_CHECKV
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] RUN_IPHOP
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] RUN_BACPHLIP
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] RUN_VCONTACT2
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Oct-22 12:13:39.106 [SIGINT handler] ERROR nextflow.Nextflow - 
+=========================================
+ PIPELINE EXECUTION FAILED
+=========================================
+Error message: SIGINT
+Exit status: null
+Work directory: /users/as3243/my_virome_pipeline/work
+
+Check the log files in the work directory for more details.
+=========================================
+
+Oct-22 12:13:39.107 [main] DEBUG nextflow.Session - Session await > all processes finished
+Oct-22 12:13:39.108 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Oct-22 12:13:39.108 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Oct-22 12:13:39.114 [main] INFO  nextflow.Nextflow - 
+=========================================
+ VIROME PIPELINE COMPLETED
+=========================================
+Status:     FAILED
+Duration:   2m 3s
+CPU hours:  (a few seconds)
+Work dir:   /users/as3243/my_virome_pipeline/work
+Exit status: null
+Error report: SIGINT
+=========================================
+Results directory: results_20251022_121134
+
+Generated outputs:
+- GeNomad results: virus identification and annotation
+- CheckV results: virus quality assessment  
+- iPHoP results: host prediction
+- BACPHLIP results: lifestyle prediction
+- vConTACT2 results: viral clustering
+
+Reports available in: results_20251022_121134/pipeline_info/
+=========================================
+
+Oct-22 12:13:39.117 [main] WARN  n.processor.TaskPollingMonitor - Killing running tasks (1)
+Oct-22 12:13:39.134 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=1; runningCount=-1; retriesCount=1; abortedCount=1; succeedDuration=0ms; failedDuration=40ms; cachedDuration=0ms;loadCpus=-16; loadMemory=0; peakRunning=1; peakCpus=8; peakMemory=32 GB; ]
+Oct-22 12:13:39.134 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Oct-22 12:13:39.135 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Oct-22 12:13:39.530 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Oct-22 12:13:39.618 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Oct-22 12:13:39.648 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

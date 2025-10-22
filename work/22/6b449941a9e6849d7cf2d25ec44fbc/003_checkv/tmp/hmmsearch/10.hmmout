@@ -1,0 +1,16 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+NODE_edge_2+_length_45381_cov_280_7 -          Peptidase_M23        PF01551.22   4.2e-25   80.0   0.2   1.2e-24   78.5   0.0   1.8   2   0   0   2   2   2   1 # 4074 # 5654 # 1 # ID=1_7;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.621
+NODE_edge_2+_length_45381_cov_280_9 -          Phage_prot_Gp6       PF05133.14     9e-29   92.8   0.0   1.2e-28   92.3   0.0   1.1   1   0   0   1   1   1   1 # 7366 # 8796 # 1 # ID=1_9;partial=00;start_type=ATG;rbs_motif=AGxAGG/AGGxGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.608
+NODE_edge_2+_length_45381_cov_280_49 -          Phasin_2             PF09361.10   3.4e-05   16.2   0.8   0.00025   13.4   0.6   2.0   1   1   1   2   2   2   2 # 37916 # 38245 # -1 # ID=1_49;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.585
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/10.hmm
+# Target file:     003_checkv/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout 003_checkv/tmp/hmmsearch/10.hmmout --noali -E 10 --cpu 0 /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/10.hmm 003_checkv/tmp/proteins.faa 
+# Current dir:     /users/as3243/my_virome_pipeline/work/22/6b449941a9e6849d7cf2d25ec44fbc
+# Date:            Wed Oct 22 14:22:44 2025
+# [ok]

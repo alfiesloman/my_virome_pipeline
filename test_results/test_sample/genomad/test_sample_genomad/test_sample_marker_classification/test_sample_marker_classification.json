@@ -1,0 +1,7 @@
+{
+    "module": "marker_classification",
+    "input": "test_sample.fasta",
+    "input_md5": "16bde4acaa366f42d10d01febdc2e3b3",
+    "start_time": "2025-10-22T12:33:31.978106+01:00",
+    "parameters": {}
+}

@@ -1,0 +1,19 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+NODE_edge_2+_length_45381_cov_280_38 -          VOG10038             -            1.1e-58  190.3   2.9   1.2e-58  190.2   2.9   1.0   1   0   0   1   1   1   1 # 30618 # 31142 # -1 # ID=1_38;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.613
+NODE_edge_2+_length_45381_cov_280_13 -          VOG10061             -            2.4e-22   71.3   6.0   2.9e-22   71.0   6.0   1.1   1   0   0   1   1   1   1 # 11206 # 11412 # 1 # ID=1_13;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=3-4bp;genetic_code=11;gc_cont=0.589
+NODE_edge_2+_length_45381_cov_280_59 -          VOG10076             -            3.7e-19   60.9   0.9   3.9e-19   60.8   0.9   1.0   1   0   0   1   1   1   1 # 42691 # 42945 # -1 # ID=1_59;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.588
+NODE_edge_2+_length_45381_cov_280_22 -          VOG10094             -            0.00015   12.0   0.0   0.00036   10.7   0.0   1.7   2   0   0   2   2   2   1 # 17979 # 18851 # 1 # ID=1_22;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=3-4bp;genetic_code=11;gc_cont=0.586
+NODE_edge_2+_length_45381_cov_280_21 -          VOG10098             -                  1    2.2  20.4       0.4    3.5   6.7   5.4   3   2   2   5   5   5   0 # 14623 # 17970 # 1 # ID=1_21;partial=00;start_type=GTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.596
+NODE_edge_2+_length_45381_cov_280_27 -          VOG10114             -            0.00029   12.9   0.6    0.0031    9.6   0.1   2.6   1   1   1   2   2   2   1 # 21593 # 24115 # 1 # ID=1_27;partial=00;start_type=GTG;rbs_motif=AGGAGG;rbs_spacer=3-4bp;genetic_code=11;gc_cont=0.604
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/53.hmm
+# Target file:     003_checkv/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout 003_checkv/tmp/hmmsearch/53.hmmout --noali -E 10 --cpu 0 /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/hmm_db/checkv_hmms/53.hmm 003_checkv/tmp/proteins.faa 
+# Current dir:     /users/as3243/my_virome_pipeline/work/22/6b449941a9e6849d7cf2d25ec44fbc
+# Date:            Wed Oct 22 14:22:02 2025
+# [ok]

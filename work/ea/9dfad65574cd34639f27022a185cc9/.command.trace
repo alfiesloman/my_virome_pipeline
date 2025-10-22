@@ -1,0 +1,17 @@
+nextflow.trace/v2
+realtime=84329
+%cpu=11921
+cpu_model=AMD EPYC 7643 48-Core Processor
+rchar=441581404
+wchar=183375246
+syscr=29114
+syscw=8748
+read_bytes=2016727040
+write_bytes=47665152
+%mem=9
+vmem=96496500
+rss=4813108
+peak_vmem=96522088
+peak_rss=4969604
+vol_ctxt=21930
+inv_ctxt=3710

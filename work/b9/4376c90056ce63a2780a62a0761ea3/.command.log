@@ -1,0 +1,22 @@
+usage: bacphlip [-h] -i INPUT_FILE [-f] [--multi_fasta] [--local_hmmsearch LOCAL_HMMSEARCH]
+bacphlip: error: the following arguments are required: -i/--input_file
+
+============================
+ Job utilisation efficiency
+============================
+
+Job ID: 25576859
+Cluster: viking2.yor.alces.network
+User/Group: as3243/clusterusers
+State: FAILED (exit code 2)
+Nodes: 1
+Cores per node: 8
+CPU Utilized: 00:00:02
+CPU Efficiency: 8.33% of 00:00:24 core-walltime
+Job Wall-clock time: 00:00:03
+Memory Utilized: 4.86 MB
+Memory Efficiency: 0.01% of 32.00 GB
+ Requested wall clock time: 12:00:00
+    Actual wall clock time: 00:00:03
+Wall clock time efficiency: 0.0%
+           Job queued time: 00:00:12
