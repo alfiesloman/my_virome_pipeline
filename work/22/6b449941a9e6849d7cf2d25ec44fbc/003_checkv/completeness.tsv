@@ -1,2 +1,0 @@
-contig_id	contig_length	viral_length	aai_expected_length	aai_completeness	aai_confidence	aai_error	aai_num_hits	aai_top_hit	aai_id	aai_af	hmm_completeness_lower	hmm_completeness_upper	hmm_num_hits	kmer_freq
-NODE_edge_2+_length_45381_cov_280	45381	NA	47068.123705306745	96.4155705124984	high	1.24961683866353	5	CheckV-048211	95.34	94.69	87.37403077081355	98.07725033524783	51	1.0

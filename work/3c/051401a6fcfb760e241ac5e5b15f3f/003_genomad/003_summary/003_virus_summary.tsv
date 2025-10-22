@@ -1,2 +1,0 @@
-seq_name	length	topology	coordinates	n_genes	genetic_code	virus_score	fdr	n_hallmarks	marker_enrichment	taxonomy
-NODE_edge_2+_length_45381_cov_280	45381	No terminal repeats	NA	65	11	0.9998	NA	8	80.3791	Viruses;Duplodnaviria;Heunggongvirae;Uroviricota;Caudoviricetes;;

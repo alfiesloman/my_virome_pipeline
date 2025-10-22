@@ -1,9 +1,0 @@
-{
-    "module": "nn_classification",
-    "input": "scaffolds.fasta",
-    "input_md5": "cb7bd38fd90e63ee3cfc63165a48f6cb",
-    "start_time": "2025-10-22T12:08:13.096672+01:00",
-    "parameters": {
-        "single_window": false
-    }
-}

@@ -1,1 +1,0 @@
-diamond blastp --outfmt 6 --evalue 1e-5 --query-cover 50 --subject-cover 50 -k 10000 --query 003_checkv/tmp/proteins.faa --db /mnt/scratch/projects/biol-soilv-2024/checkv-db-v1.5/genome_db/checkv_reps.dmnd --threads 4 > 003_checkv/tmp/diamond.tsv 2> 003_checkv/tmp/diamond.tsv.log
