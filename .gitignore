@@ -4,3 +4,4 @@ results_*
 test_results/
 .nextflow.log
 .nextflow/
+.nextflow.log*
