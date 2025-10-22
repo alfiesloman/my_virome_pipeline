@@ -4,7 +4,7 @@
 ========================================================================================
     BEST-IN-CLASS VIROME ANALYSIS PIPELINE
 ========================================================================================
-    Author: AI Agent for AS3243
+    Author: Alfie Sloman
     Version: 2.0
     Description: Production-ready virome analysis pipeline with comprehensive tools
     
