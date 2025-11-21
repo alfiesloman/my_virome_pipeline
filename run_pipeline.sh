@@ -1,8 +1,15 @@
 #!/bin/bash
 #
-# VIROME PIPELINE RUNNER v2.0
+# VIROME PIPELINE RUNNER v2.1
 # Production-ready automation script
 #
+
+
+# Load java as needed for nextflow 
+module load Java/21.0.2
+
+# Gives tower access to seqera so can connect to the website and can be tracked
+export TOWER_ACCESS_TOKEN="eyJ0aWQiOiAxMzAxOX0uMmM3NjYyYWJjYmE1NWU4NzkwZmE5OWYwNTQzMWVhZjA3M2Q4ZmRjOQ=="
 
 set -euo pipefail
 
@@ -14,17 +21,20 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 # Default parameters
-# Note: OUTPUT_DIR uses a timestamp for unique run results
 INPUT_DIR="data"
 OUTPUT_DIR="results_$(date +%Y%m%d_%H%M%S)"
 PROFILE="slurm"
 RESUME=""
 DRY_RUN=false
 HELP=false
+USE_CONDA=false
+
+# Array to collect extra Nextflow-specific flags (like -with-tower)
+NF_EXTRA_ARGS=()
 
 print_header() {
     echo -e "${BLUE}=========================================="
-    echo "   VIROME ANALYSIS PIPELINE v2.0"
+    echo "  VIROME ANALYSIS PIPELINE v2.1"
     echo "==========================================${NC}"
 }
 
@@ -33,31 +43,32 @@ log_warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
 log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 
 print_usage() {
-    # Fix: Added EOF delimiter and closing brace
     cat << EOF
-USAGE: $0 [OPTIONS]
+USAGE: $0 [OPTIONS] [NEXTFLOW_FLAGS]
 
 This script is a wrapper for the virome Nextflow pipeline.
-It translates these simple options into the required Nextflow parameters.
 
 OPTIONS:
-    -i, --input DIR     Input directory containing FASTA files (default: data)
-    -o, --output DIR    Output directory (default: results_TIMESTAMP)   
-    -p, --profile PROF  Nextflow profile (default: slurm)
-    -r, --resume        Resume the previous Nextflow run
-    -n, --dry-run       Show the Nextflow command but do not run it
-    -h, --help          Show this help message
+    -i, --input DIR   Input directory (default: data)
+    -o, --output DIR  Output directory (default: results_TIMESTAMP)
+    -p, --profile PROF Nextflow profile (default: slurm)
+    -c, --conda     Enable conda for Nextflow
+    -r, --resume    Resume previous run
+    -n, --dry-run    Show command but do not run
+    -h, --help     Show help
+
+NEXTFLOW_FLAGS:
+    Any flags not listed above (e.g., -with-tower, -name "my_run") are passed 
+    directly to the 'nextflow run' command.
 
 EXAMPLES:
-    $0                       # Run with defaults (slurm profile, 'data' input)
-    $0 -i my_data -o results   # Custom paths
-    $0 -p test               # Run using the 'test' profile
-    $0 -r                      # Resume the last run
+    $0 -i my_data -o results -with-tower
+    $0 -p test -name "Test_Run_1" -process.max_cpus 4
 EOF
 }
 
-# --- Argument Parsing ---
-# Parse command-line arguments
+# ---------------- Argument Parsing ----------------
+
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
         -i|--input)
@@ -72,8 +83,12 @@ while [[ "$#" -gt 0 ]]; do
             PROFILE="$2"
             shift 2
             ;;
+        -c|--conda)
+            USE_CONDA=true
+            shift 1
+            ;;
         -r|--resume)
-            RESUME="-resume" # This is the Nextflow flag
+            RESUME="-resume"
             shift 1
             ;;
         -n|--dry-run)
@@ -85,77 +100,101 @@ while [[ "$#" -gt 0 ]]; do
             shift 1
             ;;
         *)
-            log_error "Unknown option: $1"
-            print_usage
-            exit 1
+            # Instead of erroring out, collect the argument and pass it to Nextflow
+            log_warn "Argument not recognized by wrapper, passing to Nextflow: $1"
+            NF_EXTRA_ARGS+=("$1")
+            shift 1
             ;;
     esac
 done
 
-# --- Main Execution ---
-
-# Show help and exit if -h is used
+# ---------------- Help ----------------
 if [ "$HELP" = true ]; then
     print_usage
     exit 0
 fi
 
-# Print the header
-print_header
+# ---------------- Prepare Nextflow Environment Variables ----------------
+# Check if TOWER_ACCESS_TOKEN is set for -with-tower flag
+if [[ "${NF_EXTRA_ARGS[*]}" =~ "-with-tower" ]]; then
+    # More robust check - verify token exists AND has content
+    if [ -z "${TOWER_ACCESS_TOKEN:-}" ] || [ "${TOWER_ACCESS_TOKEN}" == "" ]; then
+        log_error "ERROR: The '-with-tower' flag was provided, but the TOWER_ACCESS_TOKEN environment variable is not set or is empty."
+        log_error "Please run 'export TOWER_ACCESS_TOKEN=\"YOUR_TOKEN\"' before executing the pipeline."
+        log_error ""
+        log_error "To verify your token is set, run: echo \$TOWER_ACCESS_TOKEN"
+        exit 1
+    fi
+    
+    # Debug: Show token length (not the token itself for security)
+    log_info "TOWER_ACCESS_TOKEN found (length: ${#TOWER_ACCESS_TOKEN} characters)"
+    
+    # Ensure the token is exported so Nextflow can access it
+    export TOWER_ACCESS_TOKEN
+    log_info "TOWER_ACCESS_TOKEN successfully exported for Nextflow."
+fi
 
-# Log the parameters
-log_info "Starting pipeline with the following settings:"
-echo -e "  Input (wrapper):     ${YELLOW}$INPUT_DIR${NC}"
-echo -e "  Output (wrapper):    ${YELLOW}$OUTPUT_DIR${NC}"
-echo -e "  Profile:             ${YELLOW}$PROFILE${NC}"
-echo -e "  Resume:              ${YELLOW}${RESUME:-false}${NC}"
-echo -e "  Dry Run:             ${YELLOW}$DRY_RUN${NC}"
+
+# ---------------- Display run info ----------------
+print_header
+log_info "Starting pipeline with:"
+echo -e " Input:     ${YELLOW}$INPUT_DIR${NC}"
+echo -e " Output:    ${YELLOW}$OUTPUT_DIR${NC}"
+echo -e " Profile:   ${YELLOW}$PROFILE${NC}"
+echo -e " Conda:    ${YELLOW}$USE_CONDA${NC}"
+echo -e " Resume:    ${YELLOW}${RESUME:-false}${NC}"
+echo -e " Nextflow Args: ${YELLOW}${NF_EXTRA_ARGS[*]:-none}${NC}"
+echo -e " Dry Run:   ${YELLOW}$DRY_RUN${NC}"
 echo "------------------------------------------"
 
-# Construct the Nextflow command in an array for safety
+# ---------------- Build NF command ----------------
 NF_CMD_ARRAY=(
-    "nextflow"
     "run"
     "main.nf"
     "-profile" "$PROFILE"
 )
 
-# ONLY add input/output args if NOT using the test profile
-# The test profile provides its own --input_dir and --outdir
+# Input/output rules
 if [ "$PROFILE" != "test" ]; then
-    NF_CMD_ARRAY+=("--input_dir" "$INPUT_DIR")
-    NF_CMD_ARRAY+=("--outdir" "$OUTPUT_DIR")
+    NF_CMD_ARRAY+=( "--input_dir" "$INPUT_DIR" )
+    NF_CMD_ARRAY+=( "--outdir" "$OUTPUT_DIR" )
 else
-    log_warn "Running with 'test' profile. Using 'test_data' input and 'test_results' output."
+    log_warn "Profile 'test': using internal test paths."
 fi
 
-# Add the -resume flag if it was set
+# Conda support
+if [ "$USE_CONDA" = true ]; then
+    NF_CMD_ARRAY+=( "-with-conda" )
+fi
+
+# Resume
 if [ -n "$RESUME" ]; then
-    NF_CMD_ARRAY+=("$RESUME")
+    NF_CMD_ARRAY+=( "$RESUME" )
 fi
 
-# Handle the dry-run flag
+# Append all unhandled arguments
+NF_CMD_ARRAY+=("${NF_EXTRA_ARGS[@]}")
+
+# ---------------- Dry Run ----------------
 if [ "$DRY_RUN" = true ]; then
-    log_warn "DRY RUN enabled. The command will not be executed."
-    log_info "Generated Nextflow command:"
-    # Print the command array elements
-    echo -e "${BLUE}${NF_CMD_ARRAY[*]}${NC}"
+    log_warn "DRY RUN - Not executing."
+    echo -e "${BLUE}nextflow ${NF_CMD_ARRAY[*]}${NC}"
     exit 0
 fi
 
-# Execute the pipeline
-log_info "Executing Nextflow command:"
-echo -e "${BLUE}${NF_CMD_ARRAY[*]}${NC}"
+# ---------------- Execute ----------------
+log_info "Executing:"
+echo -e "${BLUE}nextflow ${NF_CMD_ARRAY[*]}${NC}"
 echo "------------------------------------------"
 
-# Run the command
-"${NF_CMD_ARRAY[@]}"
+nextflow "${NF_CMD_ARRAY[@]}"
 
-# Check exit status
-if [ $? -eq 0 ]; then
+status=$?
+
+if [ $status -eq 0 ]; then
     log_info "Pipeline finished successfully."
-    log_info "Results are in: ${YELLOW}$OUTPUT_DIR${NC}"
+    log_info "Results saved to: ${YELLOW}$OUTPUT_DIR${NC}"
 else
-    log_error "Pipeline failed. Check Nextflow logs for details."
-    exit 1
+    log_error "Pipeline FAILED (exit code $status)"
+    exit $status
 fi
