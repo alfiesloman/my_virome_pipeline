@@ -1,0 +1,8 @@
+name: vcontact2
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - vcontact2
+  - prodigal

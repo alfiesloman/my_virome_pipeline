@@ -1,8 +1,5 @@
 #!/bin/bash
 #
-# VIROME PIPELINE RUNNER v2.1
-# Production-ready automation script
-#
 
 
 # Load java as needed for nextflow 
@@ -10,6 +7,13 @@ module load Java/21.0.2
 
 # Gives tower access to seqera so can connect to the website and can be tracked
 export TOWER_ACCESS_TOKEN="eyJ0aWQiOiAxMzAxOX0uMmM3NjYyYWJjYmE1NWU4NzkwZmE5OWYwNTQzMWVhZjA3M2Q4ZmRjOQ=="
+
+# Redirect conda and mamba cache to scratch to reserve home space
+export NXF_CONDA_CACHE="/mnt/scratch/users/as3243/.conda_cache/nextflow"
+export NXF_CONDA_CACHEDIR="$NXF_CONDA_CACHE" # Set the alternative variable for maximum compatibility
+
+# Explicitly create the correct cache directory to avoid race conditions/permissions issues
+mkdir -p "$NXF_CONDA_CACHEDIR"
 
 set -euo pipefail
 

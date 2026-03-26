@@ -1,0 +1,12 @@
+name: vcontact_main_env # Give it a unique name
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bioconda::vcontact2=0.11.3
+  - bioconda::diamond=2.1.11
+  - bioconda::mcl=22.282
+  - python=3.13 # Pin major/minor version
+  - numpy=2.2   # Pin major/minor version
+  - pandas=2.2   # Pin major/minor version

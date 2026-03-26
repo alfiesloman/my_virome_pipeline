@@ -107,7 +107,11 @@ Max time            : ${params.max_time}
 process RUN_GENOMAD {
     tag "$sample_id"
     label 'process_high'
+    // Ensure this conda env has 'tensorflow-gpu' installed
     conda 'genomad'
+    
+    // Request GPU resource from the scheduler (Slurm/PBS/etc)
+    accelerator 1
     
     publishDir "${params.outdir}/${sample_id}/genomad", mode: params.publish_dir_mode
     
@@ -124,16 +128,12 @@ process RUN_GENOMAD {
     
     script:
     """
-    export CUDA_VISIBLE_DEVICES=""  
-
     # Create output directory
     mkdir -p ${sample_id}_genomad
     
-    # Debug: Check input file
-    echo "DEBUG: Input file ${contigs} size: \$(wc -c < ${contigs})"
-    echo "DEBUG: Input file ${contigs} sequences: \$(grep -c '^>' ${contigs} || echo 0)"
-    
     # Run GeNomad
+    # We removed CUDA_VISIBLE_DEVICES="-1" so geNomad can see the GPU.
+    # We removed --use-gpu false because it is an invalid flag.
     genomad end-to-end \\
         --cleanup \\
         --splits 8 \\
@@ -144,8 +144,8 @@ process RUN_GENOMAD {
     # Debug: Check GeNomad output
     virus_file="${sample_id}_genomad/${contigs.baseName}_summary/${contigs.baseName}_virus.fna"
     if [ -f "\$virus_file" ]; then
-        echo "DEBUG: GeNomad virus file size: \$(wc -c < \$virus_file)"
-        echo "DEBUG: GeNomad virus sequences: \$(grep -c '^>' \$virus_file || echo 0)"
+        echo "DEBUG: GeNomad virus file size: \\\$(wc -c < \$virus_file)"
+        echo "DEBUG: GeNomad virus sequences: \\\$(grep -c '^>' \$virus_file || echo 0)"
     else
         echo "DEBUG: GeNomad virus file not found, creating empty file"
         mkdir -p "${sample_id}_genomad/${contigs.baseName}_summary"
@@ -153,11 +153,11 @@ process RUN_GENOMAD {
     fi
     """
 }
-
 process RUN_CHECKV {
     tag "$sample_id"
     label 'process_medium'
     conda 'checkv'
+   // container = 'community.wave.seqera.io/library/pip_checkv:eb8a15b236a7d614'
     
     publishDir "${params.outdir}/${sample_id}/checkv", mode: params.publish_dir_mode
     
@@ -209,7 +209,7 @@ process RUN_CHECKV {
             touch ${sample_id}_checkv/viruses.fna
         fi
     else
-        echo "DEBUG: Empty or invalid virus FASTA file for ${sample_id}"
+        echo "DEBUG: Empty or invalid v irus FASTA file for ${sample_id}"
         mkdir -p ${sample_id}_checkv
         touch ${sample_id}_checkv/viruses.fna
     fi
@@ -223,8 +223,8 @@ process RUN_CHECKV {
 process RUN_IPHOP {
     tag "$sample_id"
     label 'process_high'
-    conda 'iphop'
-    
+   conda 'iphop'
+   // container = 'community.wave.seqera.io/library/iphop:1.4.1--d86ab451e395bbdd'
     publishDir "${params.outdir}/${sample_id}/iphop", mode: params.publish_dir_mode
     
     input:
@@ -263,6 +263,7 @@ process RUN_BACPHLIP {
     tag "$sample_id"
     label 'process_medium'
     conda 'bioconda::bacphlip bioconda::hmmer python=3.8 "numpy<1.20" "pandas<1.3"'
+   // container = 'community.wave.seqera.io/library/bacphlip:0.9.6--dd5aee3c6e07297a'
 
     publishDir "${params.outdir}/${sample_id}/bacphlip", mode: params.publish_dir_mode
 
@@ -321,7 +322,8 @@ process RUN_BACPHLIP {
 process RUN_VCONTACT_PRODIGAL {
     tag "$sample_id"
     label 'process_medium'
-    conda 'bioconda::prodigal' // Simple environment!
+   conda 'bioconda::prodigal' // Simple environment!
+   // container = 'community.wave.seqera.io/library/prodigal:2.6.3--8f8940f37e4269e9'
 
     // Add the publish line because the results may be useful
     publishDir "${params.outdir}/${sample_id}/prodigal", mode: params.publish_dir_mode
@@ -439,7 +441,7 @@ process RUN_VCONTACT_MAIN {
 workflow {
     // Create input channel from FASTA files
     input_ch = Channel
-        .fromPath("${params.input_dir}/*.fasta")
+        .fromPath("${params.input_dir}/*.{fa,fasta}")
         .map { file -> 
             def sample_id = file.baseName
             return tuple(sample_id, file)
