@@ -130,11 +130,5 @@ From `nextflow.config`:
   - `/mnt/scratch/users/as3243/nextflow_work`
 - Tracing is enabled and written into `--outdir/pipeline_info/`
 
-## Important note (debug selector)
 
-`nextflow.config` currently includes:
-- `process.selector = 'RUN_BACPHLIP'` (marked as “Delete after trouble shooting”)
-
-If left enabled, Nextflow may restrict execution to only the `RUN_BACPHLIP` process.
-Remove/comment this line to run the full pipeline stages.
 
