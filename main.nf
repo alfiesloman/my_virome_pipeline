@@ -4,7 +4,7 @@
 ========================================================================================
     BEST-IN-CLASS VIROME ANALYSIS PIPELINE
 ========================================================================================
-    Author: Alfie Sloman
+    Author: Alfie Sloman :)
     Tools included:
     - GeNomad: Virus identification and annotation
     - CheckV: Virus quality assessment
